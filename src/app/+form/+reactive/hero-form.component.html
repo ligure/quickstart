@@ -1,0 +1,38 @@
+<div class="container">
+
+  <div [hidden]="submitted">
+
+    <h1>Hero Form</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="heroForm" novalidate>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+        <div *ngIf="formErrors.name" class="alert alert-danger">
+            {{ formErrors.name }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="power">Power</label>
+        <select class="form-control" formControlName="power">
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+        <div *ngIf="formErrors.power" class="alert alert-danger">
+            {{ formErrors.power }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input type="text" class="form-control" formControlName="company">
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="heroForm.invalid">Submit</button>
+
+    </form>
+
+  </div>
+
+</div>

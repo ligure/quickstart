@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div [hidden]="submitted">
+
+    <h1>Hero Form</h1>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="heroForm">
+
+      <div *ngFor="let field of fields" class="form-group">
+        <form-control [form]="heroForm" [field]="field"></form-control>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="heroForm.invalid">Submit</button>
+
+    </form>
+
+  </div>
+
+</div>

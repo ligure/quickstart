@@ -1,0 +1,51 @@
+<div class="container" *ngIf="hero">
+
+  <h2>{{hero.name}} details!</h2>
+
+  <form #heroForm="ngForm">
+
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="text" class="form-control" id="id"
+             [(ngModel)]="hero.id" name="id"
+             #id="ngModel" readonly="readonly">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="hero.name" name="name"
+             #name="ngModel">
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="power">Power</label>
+      <select class="form-control" id="power"
+              required
+              [(ngModel)]="hero.power" name="power"
+              #power="ngModel">
+        <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+      </select>
+      <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+        Power is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input type="text" class="form-control" id="company"
+             [(ngModel)]="hero.company" name="company"
+             #company="ngModel">
+    </div>
+
+    <button class="btn btn-success" (click)="goBack()">Back</button>
+    <button class="btn btn-success" (click)="save()" [disabled]="!heroForm.form.valid">Save</button>
+
+  </form>
+
+</div>
