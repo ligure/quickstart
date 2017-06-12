@@ -28,11 +28,13 @@ export class HeroService {
 
   getHeroes(): Promise<Hero[]> {
     return Promise.resolve(this.heroes);
-    /*return this.http
+    /*
+    return this.http
                .get(this.heroesUrl)
                .toPromise()
                .then(response => response.json().data as Hero[])
-               .catch(this.handleError);*/
+               .catch(this.handleError);
+    */
   }
 
 
@@ -42,12 +44,14 @@ export class HeroService {
         return Promise.resolve(hero);
       }
     }
-    /*const url = `${this.heroesUrl}/${id}`;
+    /*
+    const url = `${this.heroesUrl}/${id}`;
     return this.http
                .get(url)
                .toPromise()
                .then(response => response.json().data as Hero)
-               .catch(this.handleError);*/
+               .catch(this.handleError);
+    */
   }
 
   delete(id: number): Promise<void> {
@@ -57,29 +61,27 @@ export class HeroService {
         return Promise.resolve();
       }
     }
-    /*for (let i in this.heroes) {
-      if (this.heroes[i].id == id) {
-        this.heroes.splice(i,1);
-        return Promise.resolve();
-      }
-    }
+    /*
     const url = `${this.heroesUrl}/${id}`;
     return this.http
                .delete(url, {headers: this.headers})
                .toPromise()
                .then(() => null)
-               .catch(this.handleError);*/
+               .catch(this.handleError);
+    */
   }
 
   create(hero: Hero): Promise<Hero> {
     hero.id = this.heroes[this.heroes.length-1].id + 1;
     this.heroes.push(hero);
     return Promise.resolve(hero);
-    /*return this.http
+    /*
+    return this.http
                .post(this.heroesUrl, JSON.stringify(hero), {headers: this.headers})
                .toPromise()
                .then(res => res.json().data as Hero)
-               .catch(this.handleError);*/
+               .catch(this.handleError);
+    */
   }
 
   update(hero: Hero): Promise<Hero> {
@@ -89,12 +91,14 @@ export class HeroService {
         return Promise.resolve(hero);
       }
     }
-    /*const url = `${this.heroesUrl}/${hero.id}`;
+    /*
+    const url = `${this.heroesUrl}/${hero.id}`;
     return this.http
                .put(url, JSON.stringify(hero), {headers: this.headers})
                .toPromise()
                .then(() => hero)
-               .catch(this.handleError);*/
+               .catch(this.handleError);
+    */
   }
 
   private handleError(error: any): Promise<any> {
@@ -110,10 +114,12 @@ export class HeroService {
       }
     }
     return Observable.of<Hero[]>(heroes);
-    /*const url = `${this.heroesUrl}/?name=${term}`;
+    /*
+    const url = `${this.heroesUrl}/?name=${term}`;
     return this.http
                .get(url)
-               .map(response => response.json().data as Hero[]);*/
+               .map(response => response.json().data as Hero[]);
+    */
   }
   
 }
