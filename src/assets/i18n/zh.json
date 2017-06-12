@@ -1,0 +1,13 @@
+{
+    "dashboard":"仪表盘",
+    "heroes":"英雄",
+    "search":"搜索",
+    "new":"新增",
+    "myHeroes":"我的英雄",
+    "topHeroes":"热门英雄",
+    "heroSearch":"搜索英雄",
+    "heroName":"英雄名称",
+    "templateForm":"模板驱动型表单",
+    "reactiveForm":"响应式表单",
+    "dynamicForm":"动态表单"
+}

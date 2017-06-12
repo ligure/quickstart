@@ -1,0 +1,13 @@
+{
+    "dashboard":"Dashboard",
+    "heroes":"Heroes",
+    "search":"Search",
+    "new":"New",
+    "myHeroes":"My Heroes",
+    "topHeroes":"Top Heroes",
+    "heroSearch":"Hero Search",
+    "heroName":"Hero name",
+    "templateForm":"Template-driven forms",
+    "reactiveForm":"Reactive forms",
+    "dynamicForm":"Dynamic forms"
+}

@@ -4,10 +4,13 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Hero } from '../+model/hero-model';
 import { HeroService } from '../+service/hero.service';
+import { fadeInOut } from '../+animations/fade-in-out';
+import { flyInOut } from '../+animations/fly-in-out';
 
 @Component({
   selector: 'hero-detail',
-  templateUrl: './hero-detail.component.html'
+  templateUrl: './hero-detail.component.html',
+  animations: [ fadeInOut, flyInOut ]
 })
 
 export class HeroDetailComponent implements OnInit {
@@ -27,7 +30,6 @@ export class HeroDetailComponent implements OnInit {
         .params
         .switchMap((params: Params) => this.heroService.getHero(+params['id']))
         .subscribe(hero => this.hero = hero);
-        console.log(this.hero);
   }
 
   save(): void {

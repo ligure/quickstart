@@ -9,13 +9,20 @@ import { ReactiveComponent } from './+reactive/reactive.component';
 import { DynamicComponent } from './+dynamic/dynamic.component';
 import { FormControlComponent } from './+dynamic/form-control.component';
 import { routes } from './form.routes';
+import { HttpModule, Http } from '@angular/http';
+import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
 @NgModule({
   imports: [
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
+      deps: [Http]
+    })
   ],
   declarations: [
     FormComponent,

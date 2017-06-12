@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Hero } from '../+model/hero-model';
 import { HeroService } from '../+service/hero.service';
+import { fadeInOut } from '../+animations/fade-in-out';
+import { flyInOut } from '../+animations/fly-in-out';
 
 @Component({
   selector: 'my-heroes',
   templateUrl: './hero-list.component.html',
-  styleUrls: [ '../../../assets/css/hero-list.component.css' ]
+  styleUrls: [ '../../../assets/css/hero-list.component.css' ],
+  animations: [ fadeInOut, flyInOut ]
 })
 
 export class HeroListComponent implements OnInit {
